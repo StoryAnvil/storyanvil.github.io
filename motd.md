@@ -1,1 +1,1 @@
-<h2>Title</h2><br><p>[StoryAnvil branded link test](https://github.com/StoryAnvil)</p>
+<h2>Title</h2><br><a href="https://github.com/StoryAnvil">StoryAnvil branded link test</a>
