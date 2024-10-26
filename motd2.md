@@ -1,1 +1,0 @@
-[StoryAnvil](https://github.com/StoryAnvil)
