@@ -1,0 +1,32 @@
+{
+    "list": [
+        {
+            "id": "creepme",
+            "name": "CreepME!",
+            "data": {},
+            "datapack": true,
+            "archived": false,
+            "wiki": "https://github.com/StoryAnvil/ResourcesAndIssues/wiki/CreepME:-Home",
+
+            "platforms": {
+                "curseforge": "https://www.curseforge.com/minecraft/data-packs/creepme",
+                "curseforge-id": "1136821",
+                "modrinth": "https://modrinth.com/datapack/creepme",
+                "modrinth-id": "zGOnpakx",
+                "pmc": "https://www.planetminecraft.com/data-pack/creepme-creepers-spawn-every-5-seconds/"
+            }
+        },
+        {
+            "id": "world-78",
+            "name": "World 78",
+            "data": {},
+            "datapack": true,
+            "archived": true,
+
+            "platforms": {
+                "modrinth": "https://modrinth.com/modpack/world-78",
+                "modrinth-id": "NWVKDeh6"
+            }
+        }
+    ]
+}
