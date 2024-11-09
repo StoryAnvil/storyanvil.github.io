@@ -167,7 +167,7 @@
     </head>
     <body>
         <div id="header">
-            <a class="menu-" href="https://storyanvil.github.io" target="_blank" rel="noopener">
+            <a class="menu-" href="https://storyanvil.github.io">
                 <button class="menu">
                     STORY<b>ANVIL</b>
                 </button>
@@ -226,7 +226,7 @@
             </div>
         </div>
 
-        <div style="margin-top: 30px; background:rgb(19, 19, 19);">
+        <div style="margin-top: 50px; background:rgb(19, 19, 19); padding: 5px; width: 100%; box-sizing: border-box;" id="copyrightnotice">
             NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
             Minecraft is copyright Mojang Studios and is not affiliated with this site.
         </div>
@@ -298,11 +298,11 @@
                             </div>
 
                             <div style="padding: 20px;">
-                                ${e.wiki ? `<a href="${e.wiki}" target="_blank" rel="noopener"><img alt="Static Badge" src="https://img.shields.io/badge/-Wiki-gray?style=flat-square&logo=gitbook"></a>` : ""}
+                                ${e.wiki ? `<a href="${e.wiki}"><img alt="Static Badge" src="https://img.shields.io/badge/-Wiki-gray?style=flat-square&logo=gitbook"></a>` : ""}
                                 ${e.data ? `<img alt="${type}" src="https://img.shields.io/badge/-${type}-red?style=flat-square">` : `<img alt="Unknown type" src="https://img.shields.io/badge/-unknown-red?style=flat-square">`}
-                                ${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}" target="_blank" rel="noopener"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}
-                                ${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}" target="_blank" rel="noopener"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}
-                                ${e.platforms.pmc ? `<a href="${e.platforms.pmc}" target="_blank" rel="noopener"><img alt="Static Badge" src="https://img.shields.io/badge/-Planet%20MC-gray?style=flat-square"></a>` : ""}
+                                ${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}
+                                ${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}
+                                ${e.platforms.pmc ? `<a href="${e.platforms.pmc}"><img alt="Static Badge" src="https://img.shields.io/badge/-Planet%20MC-gray?style=flat-square"></a>` : ""}
                             </div>
                         </div>`;
                 document.getElementById("prlist").innerHTML = $html;
@@ -310,9 +310,11 @@
 
                 if (url.searchParams.get('downloadid') == e.id) {
                     document.getElementById("homepage").style.display = "none";
-                    document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br>${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}" target="_blank" rel="noopener"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}<br>${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}" target="_blank" rel="noopener"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}`;
+                    document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br>${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}<br>${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}`;
                     document.getElementById("dwntitle").innerHTML = "Download " + e.name;
                     document.getElementById("downloadprompt").style.display = "block";
+                    document.getElementById("copyrightnotice").style.position = "fixed";
+                    document.getElementById("copyrightnotice").style.bottom = "0px";
                 }
             }
         </script>
