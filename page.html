@@ -8,6 +8,7 @@
         <meta property="og:description" content="We make minecraft content like mods and modpacks"/>
         <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks"/>
         <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks"/>
+        <link rel="stylesheet" href="./css.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
             html, body {
@@ -41,9 +42,7 @@
             #contents {
                 width: 80%;
                 margin-inline: auto;
-                background-color: white;
-                border: 3px solid gray;
-                border-radius: 15px;
+                background-color: rgb(34, 34, 34);
                 height: 80vh;
                 overflow-y: scroll;
                 overflow-x: auto;
@@ -51,6 +50,28 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                color: rgb(197, 197, 197);
+                padding: 15px;
+            }
+            #contents hr {
+                border: 1px solid rgb(88, 88, 88);
+                height: 0px;
+            }
+            #contents a {
+                text-decoration: none;
+                color: rgb(74, 123, 228);
+            }
+            table {
+                border: 1px solid rgb(88, 88, 88);
+                border-collapse: collapse;
+            }
+            td, th {
+                border: 1px solid rgb(88, 88, 88);
+                padding: 10px;
+                font-weight: normal;
+            }
+            table thead tr th {
+                font-weight: bolder;
             }
 
 
@@ -103,7 +124,9 @@
         
         <script type="text/javascript" src="./lib/purify.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
         <script>
+            marked.use(markedFootnote());
             const url = new URL(document.location);
             let content = {
                 debug: false
