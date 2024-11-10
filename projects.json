@@ -20,7 +20,7 @@
             "id": "world-78",
             "name": "World 78",
             "data": {},
-            "datapack": true,
+            "datapack": false,
             "archived": true,
 
             "platforms": {
