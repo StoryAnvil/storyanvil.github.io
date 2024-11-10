@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StoryAnvil</title>
+        <meta property="og:title" content="StoryAnvil">
+        <meta property="og:description" content="We make minecraft content like mods and modpacks"/>
+        <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks"/>
+        <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks"/>
+        <link rel="stylesheet" href="./css.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+            html, body {
+                border: none;
+                margin: 0px;
+                padding: 0px;
+                background: rgb(70, 70, 70);
+                min-height: 100vh;
+                font-family: "JetBrains Mono", monospace;
+            }
+            #header {
+                background-color: rgb(19, 19, 19);
+            }
+            .menu {
+                background: none;
+                border: none;
+                outline: none;
+                color: white;
+                font-size: larger;
+                padding: 5px;
+                margin: 10px;
+                font-family: "JetBrains Mono", monospace;
+            }
+            .menu- {
+                text-decoration: none;
+            }
+            .ee {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            #contents {
+                width: 80%;
+                margin-inline: auto;
+                background-color: rgb(34, 34, 34);
+                height: 80vh;
+                overflow-y: scroll;
+                overflow-x: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: rgb(197, 197, 197);
+                padding: 15px;
+            }
+            #contents hr {
+                border: 1px solid rgb(88, 88, 88);
+                height: 0px;
+            }
+            #contents a {
+                text-decoration: none;
+                color: rgb(74, 123, 228);
+            }
+            table {
+                border: 1px solid rgb(88, 88, 88);
+                border-collapse: collapse;
+            }
+            td, th {
+                border: 1px solid rgb(88, 88, 88);
+                padding: 10px;
+                font-weight: normal;
+            }
+            table thead tr th {
+                font-weight: bolder;
+            }
+
+
+            @media (max-width: 700px) {
+                #contents {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body style="position: relative;">
+        <div id="header">
+            <a class="menu-" href="https://storyanvil.github.io">
+                <button class="menu">
+                    STORY<b>ANVIL</b>
+                </button>
+            </a>
+            <a class="menu-" href="https://github.com/StoryAnvil" target="_blank" rel="noopener">
+                <button class="menu">
+                    GitHub
+                </button>
+            </a>
+            <a class="menu-" href="https://www.curseforge.com/members/denisjaved/projects" target="_blank" rel="noopener">
+                <button class="menu">
+                    CurseForge
+                </button>
+            </a>
+            <a class="menu-" href="https://modrinth.com/organization/story-anvil" target="_blank" rel="noopener">
+                <button class="menu">
+                    Modrinth
+                </button>
+            </a>
+        </div>
+
+        <div id="invalidlink" style="display: none;">
+            <h2 class="ee">Invalid link!</h2>
+            <p style="text-align: center;" id="invalidlinkmsg"></p>
+        </div>
+
+        <div id="page">
+            <div id="contents">
+
+            </div>
+        </div>
+
+        <div style="font-size: small; margin-top: 50px; background:rgb(80, 80, 80); padding: 5px; width: 100%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; right: 0px;" id="copyrightnotice">
+            NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
+            Minecraft is copyright Mojang Studios and is not affiliated with this site.
+        </div>
+        
+        <script type="text/javascript" src="./lib/purify.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+        <script>
+            marked.use(markedFootnote());
+            const url = new URL(document.location);
+            let content = {
+                debug: false
+            };
+            console.log(content);
+            if (url.searchParams.get('debug') == "1") {
+                content.debug = true;
+            }
+            if (url.searchParams.get('wiki') != null) {
+                content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/wiki/" + url.searchParams.get('wiki');
+                content.type = "wiki";
+            }
+            if (url.searchParams.get('dbgw') != null) {
+                content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
+                content.type = "wiki";
+            }
+
+            if (content.source == undefined) {
+                document.getElementById("invalidlinkmsg").innerHTML = `
+                Request link is invalid
+                <br>
+                <pre>ERRCODE:CLF3.0</pre>
+                `;
+                document.getElementById("invalidlink").style.display = "block";
+            }
+
+            fetch(content.source + ".md", {
+                method: "GET"
+            }).then((response) => {
+                response.text().then((_content) => {
+                    content.raw = _content;
+                    post();
+                }).catch((reason) => {
+                    alert("Failed to load content, response preparse went wrong [" +  reason + "]! ERRCODE:CLF1");
+                })
+            }).catch((reason) => {
+                alert("Failed to load content [" +  reason + "]! ERRCODE:CLF2");
+            })
+
+            function post() {
+                if (content.raw == "404: Not Found") {
+                document.getElementById("invalidlinkmsg").innerHTML = `
+                    Request resource got deleted.
+                    <br>
+                    <pre>ERRCODE:CLF3.1</pre>
+                    `;
+                    document.getElementById("invalidlink").style.display = "block";
+                }
+                content.parsed = marked.parse(content.raw);
+                if (!content.debug) delete content.raw;
+
+                document.getElementById("contents").innerHTML = content.parsed;
+            }
+        </script>
+    </body>
+</html>
