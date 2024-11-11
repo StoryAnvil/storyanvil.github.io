@@ -8,9 +8,8 @@
         <meta property="og:description" content="We make minecraft content like mods and modpacks"/>
         <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks"/>
         <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks"/>
-        <link rel="stylesheet" href="./css.css">
+        <link rel="stylesheet" href="./assets/css.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
             html, body {
                 border: none;
                 margin: 0px;
@@ -44,7 +43,7 @@
                 margin-inline: auto;
                 background-color: rgb(34, 34, 34);
                 height: 80vh;
-                overflow-y: scroll;
+                overflow-y: auto;
                 overflow-x: auto;
                 position: absolute;
                 top: 50%;
@@ -52,32 +51,51 @@
                 transform: translate(-50%, -50%);
                 color: rgb(197, 197, 197);
                 padding: 15px;
+                max-width: 100vw;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
             }
-            #contents hr {
-                border: 1px solid rgb(88, 88, 88);
-                height: 0px;
+            #parsedpage {
+                overflow-y: auto;
+                overflow-x: auto;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                flex-grow: 1;
             }
-            #contents a {
-                text-decoration: none;
-                color: rgb(74, 123, 228);
+            #sidebar {
+                position: relative;
+                height: 100%;
             }
-            table {
-                border: 1px solid rgb(88, 88, 88);
-                border-collapse: collapse;
+            #wikicopyrightnotice {
+                margin-top: 40px;
+                font-size: small;
             }
-            td, th {
-                border: 1px solid rgb(88, 88, 88);
-                padding: 10px;
-                font-weight: normal;
+            #wikicopyrightnotice p {
+                margin: 0px;
             }
-            table thead tr th {
-                font-weight: bolder;
+            #wikicopyrightnoticeMobile {
+                display: none;
             }
-
-
+            .sidebtn {
+                border-radius: 0px;
+                width: 100%;
+                margin: 0px;
+            }
             @media (max-width: 700px) {
                 #contents {
                     width: 100%;
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    transform: unset;
+                    flex-direction: column;
+                }
+                #wikicopyrightnotice {
+                    display: none;
+                }
+                #wikicopyrightnoticeMobile {
+                    display: block;
                 }
             }
         </style>
@@ -113,18 +131,42 @@
 
         <div id="page">
             <div id="contents">
+                <div id="parsedpage">
 
+                </div>
+                <div id="sidebar">
+                    <div id="wikisidebar">
+                        <button class="sidebtn">
+                            Wiki home
+                        </button>
+                    </div>
+
+                    <div id="mdsidebarReserved">
+
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div style="font-size: small; margin-top: 50px; background:rgb(80, 80, 80); padding: 5px; width: 100%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; right: 0px;" id="copyrightnotice">
+        <div id="copyrightnotice">
+            <div id="wikicopyrightnoticeMobile">
+                <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+                <hr>
+            </div>
+
             NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
             Minecraft is copyright Mojang Studios and is not affiliated with this site.
+
+            <br>
+            <a href="./page.html?fullrepo=storyanvil.github.io/master/LICENSE">
+                StoryAnvil website license
+            </a>
         </div>
-        
+
         <script type="text/javascript" src="./lib/purify.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
+        <script src="./lib/jquery-3.7.1.min.js"></script>
         <script>
             marked.use(markedFootnote());
             const url = new URL(document.location);
@@ -139,18 +181,34 @@
                 content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/wiki/" + url.searchParams.get('wiki');
                 content.type = "wiki";
             }
+            if (url.searchParams.get('blog') != null) {
+                content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/blog/" + url.searchParams.get('blog');
+                content.type = "blog";
+            }
+            if (url.searchParams.get('full') != null) {
+                content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/" + url.searchParams.get('full');
+                content.type = "blog";
+            }
+            if (url.searchParams.get('fullrepo') != null) {
+                content.source = "https://raw.githubusercontent.com/StoryAnvil/" + url.searchParams.get('fullrepo');
+                content.type = "blog";
+            }
             if (url.searchParams.get('dbgw') != null) {
                 content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
                 content.type = "wiki";
             }
 
             if (content.source == undefined) {
-                document.getElementById("invalidlinkmsg").innerHTML = `
+                $("invalidlinkmsg").innerHTML = `
                 Request link is invalid
                 <br>
                 <pre>ERRCODE:CLF3.0</pre>
                 `;
-                document.getElementById("invalidlink").style.display = "block";
+                $("#invalidlink").style.display = "block";
+            }
+
+            if (content.type != "wiki") {
+                $("#wikisidebar")[0].style.display = "none";
             }
 
             fetch(content.source + ".md", {
@@ -160,25 +218,52 @@
                     content.raw = _content;
                     post();
                 }).catch((reason) => {
+                    console.error(reason);
                     alert("Failed to load content, response preparse went wrong [" +  reason + "]! ERRCODE:CLF1");
                 })
             }).catch((reason) => {
+                console.error(reason);
                 alert("Failed to load content [" +  reason + "]! ERRCODE:CLF2");
             })
 
             function post() {
                 if (content.raw == "404: Not Found") {
-                document.getElementById("invalidlinkmsg").innerHTML = `
+                $("#invalidlinkmsg").innerHTML = `
                     Request resource got deleted.
                     <br>
                     <pre>ERRCODE:CLF3.1</pre>
                     `;
-                    document.getElementById("invalidlink").style.display = "block";
+                    $("#invalidlink").style.display = "block";
                 }
                 content.parsed = marked.parse(content.raw);
                 if (!content.debug) delete content.raw;
 
-                document.getElementById("contents").innerHTML = content.parsed;
+                $("#parsedpage").html(content.parsed + `
+                <div id="wikicopyrightnotice">
+                    <hr>
+                    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+                    <div style="margin-top:15px;">
+                        <a href="./page.html?full=CONTRIBUTING">
+                            <button>
+                                Contribute
+                            </button>
+                        </a>
+                        <a href="https://github.com/StoryAnvil/ResourcesAndIssues/issues/new?assignees=&labels=Project%3A+WIKI&projects=&template=WikiReport.yml&title=%5BWIKI%5D+%3Ctitle+here%3E">
+                            <button>
+                                Report problem
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            `);
+                
+                const aside = $("aside");
+                console.log(aside);
+                if (aside.length > 0) {
+                    for (let i = 0; i < aside.length; i++) {
+                        $("#mdsidebarReserved")[0].appendChild(aside[0]);
+                    }
+                }
             }
         </script>
     </body>
