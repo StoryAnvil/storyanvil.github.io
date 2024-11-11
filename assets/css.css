@@ -52,9 +52,76 @@ button {
   border: 1px solid #404244;
   padding: 5px;
   border-radius: 5px;
-
   transition: background 0.05s linear;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 button:hover {
   background: #202224;
+}/*
+code {
+  background-color: #171818;
+  width: 100%;
+}
+.language-js {
+  display: block;
+  padding: 5px;
+  max-width: 100%;
+  box-sizing: border-box;
+}*/
+
+::selection {
+  background-color: #838383;
+  color: black;
+}
+
+
+/**          ALERTS           **/
+
+.info {
+  --color: white;
+  --tcolor:rgb(84, 226, 226);
+  --bg: rgba(33, 150, 150, 0.5);
+  --name: "Info: ";
+}
+.warn {
+  --color: white;
+  --tcolor:rgb(226, 160, 84);
+  --bg: rgba(150, 119, 33, 0.5);
+  --name: "Warning: ";
+}
+.caution {
+  --color: white;
+  --tcolor:rgb(226, 89, 84);
+  --bg: rgba(150, 33, 33, 0.5);
+  --name: "Caution: ";
+}
+.tip {
+  --color: white;
+  --tcolor:rgb(112, 226, 84);
+  --bg: rgba(33, 150, 52, 0.5);
+  --name: "Tip: ";
+}
+
+.alert {
+  padding: 15px;
+  margin: 5px;
+  border-radius: 15px;
+  color: var(--color);
+  background-color: var(--bg);
+  box-sizing: border-box;
+  margin-inline: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--tcolor);
+}
+.alert p {
+  padding-left: 0.5rem !important;
+  padding: 0px;
+  margin: 0px;
+}
+.alert::before {
+  content: var(--name);
+  color: var(--tcolor);
+  font-weight: bold !important;
 }
