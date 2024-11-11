@@ -8,8 +8,8 @@
         <meta property="og:description" content="We make minecraft content like mods and modpacks"/>
         <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks"/>
         <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks"/>
+        <link rel="stylesheet" href="./assets/css.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
             /** {outline: 2px green solid !important;}*/
             .cogwheel {
                 -webkit-user-select: none;
@@ -193,24 +193,24 @@
             <div id="banner">
                 <span class="logoText">
                     <span id="cgwh-0">
-                        <img id="cgwh-0-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./cogwheel.svg">
+                        <img id="cgwh-0-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel.svg">
                     </span>
                     <span id="cgwh-1">
-                        <img id="cgwh-1-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./cogwheel2.svg">
+                        <img id="cgwh-1-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel2.svg">
                     </span>
                     <span id="cgwh-2">
-                        <img id="cgwh-2-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./cogwheel1.svg">
+                        <img id="cgwh-2-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel1.svg">
                     </span>
                     <span id="cgwh-3">
-                        <img id="cgwh-3-" class="cogwheel" title="StoryAnvil logo bell" src="./bell.svg">
+                        <img id="cgwh-3-" class="cogwheel" title="StoryAnvil logo bell" src="./assets/bell.svg">
                     </span>
-                    <img id="cgwh-4-" class="cogwheel" title="StoryAnvil logo hammer" src="./hammer.svg">
+                    <img id="cgwh-4-" class="cogwheel" title="StoryAnvil logo hammer" src="./assets/hammer.svg">
                     <span style="z-index: 2; position: relative; color: white;">
                         STORY<b>ANVIL</b>
                     </span>
                 </span>
                 <span class="logoStatic">
-                    <img src="./StoryAnvil.svg">
+                    <img src="./assets/StoryAnvil.svg">
                 </span>
             </div>
             <div>
@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <div style="font-size: small; margin-top: 50px; background:rgb(80, 80, 80); padding: 5px; width: 100%; box-sizing: border-box;" id="copyrightnotice">
+        <div id="copyrightnotice">
             NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
             Minecraft is copyright Mojang Studios and is not affiliated with this site.
         </div>
@@ -238,7 +238,7 @@
             let projects;
             let $html = ``;
             let $waitList = {};
-            fetch("./projects.json", {
+            fetch("https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/projects.json", {
                 method: "GET"
             }).then((response) => {
                 response.json().then(
