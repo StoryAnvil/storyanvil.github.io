@@ -27,6 +27,21 @@
                 "modrinth": "https://modrinth.com/modpack/world-78",
                 "modrinth-id": "NWVKDeh6"
             }
+        },
+        {
+            "id": "orehighligher",
+            "name": "Universal ore highlights",
+            "data": {},
+            "datapack": false,
+            "archived": false,
+
+            "platforms": {
+                "curseforge": "https://curseforge.com/minecraft/texture-packs/universal-ore-highlighter",
+                "curseforge-id": "1137812",
+                "modrinth": "https://modrinth.com/resourcepack/universal-ore-highlights",
+                "modrinth-id": "j9GHo2mm",
+                "pmc": "https://www.planetminecraft.com/texture-pack/universal-ore-highlights/"
+            }
         }
     ]
 }
