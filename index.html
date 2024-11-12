@@ -1,294 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="O31NJDv3bMJOwDuqZVrZd3P7e9gLwL_RcgFv9P4jPV0" />
-        <title>StoryAnvil</title>
-        <meta property="og:title" content="StoryAnvil">
-        <meta property="og:description" content="We make minecraft content like mods and modpacks"/>
-        <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks"/>
-        <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks"/>
-        <link rel="stylesheet" href="./assets/css.css">
-        <style>
-            /** {outline: 2px green solid !important;}*/
-            .cogwheel {
-                -webkit-user-select: none;
-                user-select: none;
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="O31NJDv3bMJOwDuqZVrZd3P7e9gLwL_RcgFv9P4jPV0" />
+    <title>StoryAnvil</title>
+    <meta property="og:title" content="StoryAnvil">
+    <meta property="og:description" content="We make minecraft content like mods and modpacks" />
+    <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks" />
+    <meta name="keywords"
+        content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks" />
+    <link rel="stylesheet" href="./assets/css.css">
+    <style>
+        /** {outline: 2px green solid !important;}*/
+        .cogwheel {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        @keyframes cogwheel {
+            0% {
+                rotate: 0deg;
             }
-            @keyframes cogwheel {
-                0% {
-                    rotate: 0deg;
-                }
-                100% {
-                    rotate: 360deg;
-                }
+
+            100% {
+                rotate: 360deg;
             }
-            @keyframes uncogwheel {
-                0% {
-                    rotate: 360deg;
-                }
-                100% {
-                    rotate: 00deg;
-                }
+        }
+
+        @keyframes uncogwheel {
+            0% {
+                rotate: 360deg;
             }
-            #banner {
-                width: 100%;
-                box-sizing: border-box;
-                border: none;
-                text-align: center;
-                padding-top: 30vh;
-                padding-bottom: 25vh;
-                background-color: rgb(34, 34, 34);
-                position: relative;
+
+            100% {
+                rotate: 00deg;
             }
-            html, body {
-                border: none;
-                margin: 0px;
-                padding: 0px;
-                background: rgb(70, 70, 70);
-                color: white;
-                font-family: "JetBrains Mono", monospace;
-            }
+        }
+
+        #banner {
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            text-align: center;
+            padding-top: 30vh;
+            padding-bottom: 25vh;
+            background-color: rgb(34, 34, 34);
+            position: relative;
+        }
+
+        html,
+        body {
+            border: none;
+            margin: 0px;
+            padding: 0px;
+            background: rgb(70, 70, 70);
+            color: white;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .logoText {
+            text-align: center;
+            font-size: 5rem;
+            position: relative;
+            font-optical-sizing: auto;
+            font-weight: regular;
+            font-style: normal;
+        }
+
+        #cgwh-0 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(0%, -18%) scale(1.25);
+
+        }
+
+        #cgwh-0- {
+            animation: uncogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-1 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-80%, -85%) scale(1);
+        }
+
+        #cgwh-1- {
+            animation: cogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-2 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-170%, -70%) scale(0.9);
+        }
+
+        #cgwh-2- {
+            animation: uncogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-3 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-80%, -20%) scale(0.5);
+        }
+
+        #cgwh-3- {
+            /*animation: uncogwheel 3.6s infinite linear;*/
+        }
+
+        #cgwh-4- {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-63%, -52%) scale(0.5);
+        }
+
+        #header {
+            background-color: rgb(19, 19, 19);
+        }
+
+        .menu {
+            background: none;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: larger;
+            padding: 5px;
+            margin: 10px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .menu- {
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .logoStatic {
+            display: none;
+        }
+
+        @media (max-width: 700px) {
             .logoText {
-                text-align: center;
-                font-size: 5rem;
-                position: relative;
-                font-optical-sizing: auto;
-                font-weight: regular;
-                font-style: normal;
+                display: none !important;
             }
-            #cgwh-0 {
-                position: absolute;
-                right: 0px;
-                z-index: 1;
-                transform: translate(0%, -18%) scale(1.25);
-                
-            }
-            #cgwh-0- {
-                animation: uncogwheel 3.6s infinite linear;
-            }
-            #cgwh-1 {
-                position: absolute;
-                right: 0px;
-                z-index: 1;
-                transform: translate(-80%, -85%) scale(1);
-            }
-            #cgwh-1- {
-                animation: cogwheel 3.6s infinite linear;
-            }
-            #cgwh-2 {
-                position: absolute;
-                right: 0px;
-                z-index: 1;
-                transform: translate(-170%, -70%) scale(0.9);
-            }
-            #cgwh-2- {
-                animation: uncogwheel 3.6s infinite linear;
-            }
-            #cgwh-3 {
-                position: absolute;
-                right: 0px;
-                z-index: 1;
-                transform: translate(-80%, -20%) scale(0.5);
-            }
-            #cgwh-3- {
-                /*animation: uncogwheel 3.6s infinite linear;*/
-            }
-            #cgwh-4- {
-                position: absolute;
-                right: 0px;
-                z-index: 1;
-                transform: translate(-63%, -52%) scale(0.5);
-            }
-            #header {
-                background-color: rgb(19, 19, 19);
-            }
-            .menu {
-                background: none;
-                border: none;
-                outline: none;
-                color: white;
-                font-size: larger;
-                padding: 5px;
-                margin: 10px;
-                font-family: "JetBrains Mono", monospace;
-            }
-            .menu- {
-                text-decoration: none;
-            }
-            h2 {
-                font-size: 2.5rem;
-                text-align: center;
-            }
+
             .logoStatic {
-                display: none;
+                display: block !important;
             }
-            @media (max-width: 700px) {
-                .logoText {
-                    display: none !important;
-                }
-                .logoStatic {
-                    display: block !important;
-                }
-                .logoStatic img {
-                    width: 80%;
-                }
-                #banner {
-                    padding-top: 10vh;
-                    padding-bottom: 10vh;
-                }
+
+            .logoStatic img {
+                width: 80%;
             }
-            .pr-card {
-                background: rgb(34, 34, 34);
-                height: 400px;
-                max-width: 400px;
-                min-width: 300px;
-                width: 400px;
-                margin: 30px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+
+            #banner {
+                padding-top: 10vh;
+                padding-bottom: 10vh;
             }
-            .pr-banner {
-                width: 100%;
-                filter: brightness(0.8);
-            }
-            .pr-logo {
-                position: absolute;
-                width: 30%;
-                border-radius: 15px;
-                top: 50%;
-                left: 10px;
-                transform: translate(0, -50%);
-            }
-            .pr-active {
-                border: 2px solid purple;
-            }
-        </style>
-    </head>
-    <body style="position: relative;">
-        <div id="header">
-            <a class="menu-" href="https://storyanvil.github.io">
-                <button class="menu">
+        }
+
+        .pr-card {
+            background: rgb(34, 34, 34);
+            height: 400px;
+            max-width: 400px;
+            min-width: 300px;
+            width: 400px;
+            margin: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pr-banner {
+            width: 100%;
+            filter: brightness(0.8);
+        }
+
+        .pr-logo {
+            position: absolute;
+            width: 30%;
+            border-radius: 15px;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+        }
+
+        .pr-active {
+            border: 2px solid purple;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+    <div id="header">
+        <a class="menu-" href="https://storyanvil.github.io">
+            <button class="menu">
+                STORY<b>ANVIL</b>
+            </button>
+        </a>
+        <a class="menu-" href="https://github.com/StoryAnvil" target="_blank" rel="noopener">
+            <button class="menu">
+                GitHub
+            </button>
+        </a>
+        <a class="menu-" href="https://www.curseforge.com/members/denisjaved/projects" target="_blank" rel="noopener">
+            <button class="menu">
+                CurseForge
+            </button>
+        </a>
+        <a class="menu-" href="https://modrinth.com/organization/story-anvil" target="_blank" rel="noopener">
+            <button class="menu">
+                Modrinth
+            </button>
+        </a>
+    </div>
+    <div id="homepage">
+        <div id="banner">
+            <span class="logoText">
+                <span id="cgwh-0">
+                    <img id="cgwh-0-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel.svg">
+                </span>
+                <span id="cgwh-1">
+                    <img id="cgwh-1-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel2.svg">
+                </span>
+                <span id="cgwh-2">
+                    <img id="cgwh-2-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel1.svg">
+                </span>
+                <span id="cgwh-3">
+                    <img id="cgwh-3-" class="cogwheel" title="StoryAnvil logo bell" src="./assets/bell.svg">
+                </span>
+                <img id="cgwh-4-" class="cogwheel" title="StoryAnvil logo hammer" src="./assets/hammer.svg">
+                <span style="z-index: 2; position: relative; color: white;">
                     STORY<b>ANVIL</b>
-                </button>
-            </a>
-            <a class="menu-" href="https://github.com/StoryAnvil" target="_blank" rel="noopener">
-                <button class="menu">
-                    GitHub
-                </button>
-            </a>
-            <a class="menu-" href="https://www.curseforge.com/members/denisjaved/projects" target="_blank" rel="noopener">
-                <button class="menu">
-                    CurseForge
-                </button>
-            </a>
-            <a class="menu-" href="https://modrinth.com/organization/story-anvil" target="_blank" rel="noopener">
-                <button class="menu">
-                    Modrinth
-                </button>
-            </a>
-        </div>
-        <div id="homepage">
-            <div id="banner">
-                <span class="logoText">
-                    <span id="cgwh-0">
-                        <img id="cgwh-0-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel.svg">
-                    </span>
-                    <span id="cgwh-1">
-                        <img id="cgwh-1-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel2.svg">
-                    </span>
-                    <span id="cgwh-2">
-                        <img id="cgwh-2-" class="cogwheel" title="StoryAnvil logo cogwheel" src="./assets/cogwheel1.svg">
-                    </span>
-                    <span id="cgwh-3">
-                        <img id="cgwh-3-" class="cogwheel" title="StoryAnvil logo bell" src="./assets/bell.svg">
-                    </span>
-                    <img id="cgwh-4-" class="cogwheel" title="StoryAnvil logo hammer" src="./assets/hammer.svg">
-                    <span style="z-index: 2; position: relative; color: white;">
-                        STORY<b>ANVIL</b>
-                    </span>
                 </span>
-                <span class="logoStatic">
-                    <img src="./assets/StoryAnvil.svg">
-                </span>
-            </div>
-            <div>
-                <h2>Projects</h2>
-                <div style="display: flex; flex-direction: row; flex-wrap: wrap;" id="prlist">
-                </div>
-            </div>
+            </span>
+            <span class="logoStatic">
+                <img src="./assets/StoryAnvil.svg">
+            </span>
         </div>
-
-        <div id="downloadprompt" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgb(34, 34, 34); z-index: 999; padding: 50px; border-radius: 15px;">
-            <h2 id="dwntitle"></h2>
-            <div id="dwnbody" style="text-align: center;">
-                
+        <div>
+            <h2>Projects</h2>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;" id="prlist">
             </div>
         </div>
+    </div>
 
-        <div id="copyrightnotice">
-            NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
-            Minecraft is copyright Mojang Studios and is not affiliated with this site.
+    <div id="downloadprompt"
+        style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgb(34, 34, 34); z-index: 999; padding: 50px; border-radius: 15px;">
+        <h2 id="dwntitle"></h2>
+        <div id="dwnbody" style="text-align: center;">
+
         </div>
+    </div>
 
-        <script>
-            const url = new URL(document.location);
+    <div id="copyrightnotice">
+        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
+        Minecraft is copyright Mojang Studios and is not affiliated with this site.
+    </div>
 
-            let projects;
-            let $html = ``;
-            let $waitList = {};
-            fetch("https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/projects.json", {
-                method: "GET"
-            }).then((response) => {
-                response.json().then(
-                    (data) => {
-                        projects = data;
-                        start();
-                    }
-                ).catch((reason) => {
-                    alert("Failed to load projects. Check your internet connection!");
-                })
-            }).catch((reason) => {
+    <script>
+        const url = new URL(document.location);
+
+        let projects;
+        let $html = ``;
+        let $waitList = {};
+        fetch("https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/projects.json", {
+            method: "GET"
+        }).then((response) => {
+            response.json().then(
+                (data) => {
+                    projects = data;
+                    start();
+                }
+            ).catch((reason) => {
                 alert("Failed to load projects. Check your internet connection!");
             })
+        }).catch((reason) => {
+            alert("Failed to load projects. Check your internet connection!");
+        })
 
-            function start() {
-                projects.list.forEach(e => {
-                    console.log(e);
+        function start() {
+            projects.list.forEach(e => {
+                console.log(e);
 
-                    $waitList[e.id] = false;
-                    fetch("https://api.modrinth.com/v2/project/" + e.platforms["modrinth-id"], {
-                        method: "GET",
-                        headers: {
-                            "User-Agent": "StoryAnvil/storyanvil.github.io/homepage (denisJavaOffical@yandex.ru)",
-                        },
-                    }).then((response) => {
-                        response.json().then(
-                            (data) => {
-                                e.data = data;
-                                delete $waitList[e.id];
-                                build(e);
-                            }
-                        ).catch((reason) => {
-                            console.warn(reason);    
+                $waitList[e.id] = false;
+                fetch("https://api.modrinth.com/v2/project/" + e.platforms["modrinth-id"], {
+                    method: "GET",
+                    headers: {
+                        "User-Agent": "StoryAnvil/storyanvil.github.io/homepage (denisJavaOffical@yandex.ru)",
+                    },
+                }).then((response) => {
+                    response.json().then(
+                        (data) => {
+                            e.data = data;
                             delete $waitList[e.id];
-                            build(e);    
-                        })
-                    }).catch((reason) => {
+                            build(e);
+                        }
+                    ).catch((reason) => {
                         console.warn(reason);
                         delete $waitList[e.id];
                         build(e);
                     })
-                });
-            }
+                }).catch((reason) => {
+                    console.warn(reason);
+                    delete $waitList[e.id];
+                    build(e);
+                })
+            });
+        }
 
-            function build(e) {
-                let type = "";
-                if (e.data) {type = e.data.project_type}
-                if (e.datapack == true) {type = "datapack"}
-                $html += `<div id="${"pr_" + e.id}" class="pr-card${url.searchParams.get('id') == e.id ? " pr-active" : ""}">
+        function build(e) {
+            let type = "";
+            if (e.data) { type = e.data.project_type }
+            if (e.datapack == true) { type = "datapack" }
+            $html += `<div id="${"pr_" + e.id}" class="pr-card${url.searchParams.get('id') == e.id ? " pr-active" : ""}">
                             <div>
                                 <div style="position: relative;">
                                     <img class="pr-banner" title="project banner" src="${e.data.gallery[0].url}">
@@ -307,18 +341,19 @@
                                 ${e.platforms.pmc ? `<a href="${e.platforms.pmc}"><img alt="Static Badge" src="https://img.shields.io/badge/-Planet%20MC-gray?style=flat-square"></a>` : ""}
                             </div>
                         </div>`;
-                document.getElementById("prlist").innerHTML = $html;
-                if (url.searchParams.get('id') == e.id) {document.getElementById("pr_" + e.id).scrollIntoView()};
+            document.getElementById("prlist").innerHTML = $html;
+            if (url.searchParams.get('id') == e.id) { document.getElementById("pr_" + e.id).scrollIntoView() };
 
-                if (url.searchParams.get('downloadid') == e.id) {
-                    document.getElementById("homepage").style.display = "none";
-                    document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br>${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}<br>${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}`;
-                    document.getElementById("dwntitle").innerHTML = "Download " + e.name;
-                    document.getElementById("downloadprompt").style.display = "block";
-                    document.getElementById("copyrightnotice").style.position = "fixed";
-                    document.getElementById("copyrightnotice").style.bottom = "0px";
-                }
+            if (url.searchParams.get('downloadid') == e.id) {
+                document.getElementById("homepage").style.display = "none";
+                document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br>${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}<br>${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}`;
+                document.getElementById("dwntitle").innerHTML = "Download " + e.name;
+                document.getElementById("downloadprompt").style.display = "block";
+                document.getElementById("copyrightnotice").style.position = "fixed";
+                document.getElementById("copyrightnotice").style.bottom = "0px";
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
+
 </html>
