@@ -44,7 +44,26 @@ table thead tr th {
   font-weight: bolder;
 }
 #copyrightnotice {
-  font-size: small; margin-top: 50px; color: white; background:rgb(80, 80, 80); padding: 5px; width: 100%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; right: 0px;
+  font-size: small; 
+  margin-top: 50px; 
+  color: white; 
+  background:rgb(80, 80, 80); 
+  padding: 5px; 
+  width: 100%; 
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+#copyrightnoticeRaw {
+  font-size: small; 
+  margin-top: 50px; 
+  color: white; 
+  background:rgb(80, 80, 80); 
+  padding: 5px; 
+  width: 100%; 
+  box-sizing: border-box;
 }
 button {
   background: #0c0d0e;
