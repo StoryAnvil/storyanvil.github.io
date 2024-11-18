@@ -206,7 +206,7 @@
         const url = new URL(document.location);
         let content = {
             debug: false,
-            datasource: "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/wiki/"
+            datasource: "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master"
         };
         console.log(content);
         if (url.searchParams.get('debug') == "1") {
@@ -229,7 +229,7 @@
             content.type = "wiki";
         }
         if (url.searchParams.get('blog') != null) {
-            content.source = content.datasource + "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/blog/" + url.searchParams.get('blog');
+            content.source = content.datasource + "/blog/" + url.searchParams.get('blog');
             content.type = "blog";
         }
         if (url.searchParams.get('full') != null) {
