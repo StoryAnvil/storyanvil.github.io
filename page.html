@@ -159,9 +159,11 @@
             </div>
             <div id="sidebar">
                 <div id="wikisidebar">
-                    <button class="sidebtn">
-                        Wiki home
-                    </button>
+                    <a href="https://storyanvil.github.io/page?wiki=home">
+                        <button class="sidebtn">
+                            Wiki home
+                        </button>
+                    </a>
                 </div>
 
                 <div id="mdsidebarReserved">
@@ -203,18 +205,31 @@
         marked.use(markedFootnote());
         const url = new URL(document.location);
         let content = {
-            debug: false
+            debug: false,
+            datasource: "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/wiki/"
         };
         console.log(content);
         if (url.searchParams.get('debug') == "1") {
             content.debug = true;
+            if (url.searchParams.get('source') != null) {
+                content.datasource = "http://" + url.searchParams.get('source');
+            }
+
+            if (url.searchParams.get('dbgw') != null) {
+                content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
+                content.type = "wiki";
+            }
+            if (url.searchParams.get('dbgb') != null) {
+                content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
+                content.type = "blog";
+            }
         }
         if (url.searchParams.get('wiki') != null) {
-            content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/wiki/" + url.searchParams.get('wiki');
+            content.source = content.datasource + "/wiki/" + url.searchParams.get('wiki');
             content.type = "wiki";
         }
         if (url.searchParams.get('blog') != null) {
-            content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/blog/" + url.searchParams.get('blog');
+            content.source = content.datasource + "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/blog/" + url.searchParams.get('blog');
             content.type = "blog";
         }
         if (url.searchParams.get('full') != null) {
@@ -224,10 +239,6 @@
         if (url.searchParams.get('fullrepo') != null) {
             content.source = "https://raw.githubusercontent.com/StoryAnvil/" + url.searchParams.get('fullrepo');
             content.type = "blog";
-        }
-        if (url.searchParams.get('dbgw') != null) {
-            content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
-            content.type = "wiki";
         }
 
         if (content.source == undefined) {
@@ -275,6 +286,11 @@
                     <hr>
                     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
                     <div style="margin-top:15px;">
+                        <a href="https://storyanvil.github.io/page?blog=StoryAnvilContact">
+                            <button>
+                                Contact StoryAnvil
+                            </button>
+                        </a>
                         <a href="./page.html?full=CONTRIBUTING">
                             <button>
                                 Contribute
