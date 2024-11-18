@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="O31NJDv3bMJOwDuqZVrZd3P7e9gLwL_RcgFv9P4jPV0" />
+    <meta name="yandex-verification" content="f3cd06ace0e73f71" />
+    <title>StoryAnvil</title>
+    <meta property="og:title" content="StoryAnvil">
+    <meta property="og:description" content="We make minecraft content like mods and modpacks" />
+    <meta name="description" content="We make minecraft content like mods, modpacks, datapacks and resourcepacks" />
+    <meta name="keywords"
+        content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks" />
+    <link rel="stylesheet" href="./assets/css.css">
+    <style>
+        /** {outline: 2px green solid !important;}*/
+        .cogwheel {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        @keyframes cogwheel {
+            0% {
+                rotate: 0deg;
+            }
+
+            100% {
+                rotate: 360deg;
+            }
+        }
+
+        @keyframes uncogwheel {
+            0% {
+                rotate: 360deg;
+            }
+
+            100% {
+                rotate: 00deg;
+            }
+        }
+
+        #banner {
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            text-align: center;
+            padding-top: 30vh;
+            padding-bottom: 25vh;
+            background-color: rgb(34, 34, 34);
+            position: relative;
+        }
+
+        html,
+        body {
+            border: none;
+            margin: 0px;
+            padding: 0px;
+            background: rgb(70, 70, 70);
+            color: white;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .logoText {
+            text-align: center;
+            font-size: 5rem;
+            position: relative;
+            font-optical-sizing: auto;
+            font-weight: regular;
+            font-style: normal;
+        }
+
+        #cgwh-0 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(0%, -18%) scale(1.25);
+
+        }
+
+        #cgwh-0- {
+            animation: uncogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-1 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-80%, -85%) scale(1);
+        }
+
+        #cgwh-1- {
+            animation: cogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-2 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-170%, -70%) scale(0.9);
+        }
+
+        #cgwh-2- {
+            animation: uncogwheel 3.6s infinite linear;
+        }
+
+        #cgwh-3 {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-80%, -20%) scale(0.5);
+        }
+
+        #cgwh-3- {
+            /*animation: uncogwheel 3.6s infinite linear;*/
+        }
+
+        #cgwh-4- {
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            transform: translate(-63%, -52%) scale(0.5);
+        }
+
+        #header {
+            background-color: rgb(19, 19, 19);
+        }
+
+        .menu {
+            background: none;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: larger;
+            padding: 5px;
+            margin: 10px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .menu- {
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .logoStatic {
+            display: none;
+        }
+
+        @media (max-width: 700px) {
+            .logoText {
+                display: none !important;
+            }
+
+            .logoStatic {
+                display: block !important;
+            }
+
+            .logoStatic img {
+                width: 80%;
+            }
+
+            #banner {
+                padding-top: 10vh;
+                padding-bottom: 10vh;
+            }
+        }
+
+        .pr-card {
+            background: rgb(34, 34, 34);
+            height: 400px;
+            max-width: 400px;
+            min-width: 300px;
+            width: 400px;
+            margin: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pr-banner {
+            width: 100%;
+            filter: brightness(0.8);
+        }
+
+        .pr-logo {
+            position: absolute;
+            width: 30%;
+            border-radius: 15px;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+        }
+
+        .pr-active {
+            border: 2px solid purple;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+    <div id="header">
+        <a class="menu-" href="https://storyanvil.github.io">
+            <button class="menu">
+                STORY<b>ANVIL</b>
+            </button>
+        </a>
+        <a class="menu-" href="https://storyanvil.github.io/page?wiki=home">
+            <button class="menu">
+                Wiki
+            </button>
+        </a>
+        <a class="menu-" href="https://github.com/StoryAnvil" target="_blank" rel="noopener">
+            <button class="menu">
+                GitHub
+            </button>
+        </a>
+        <a class="menu-" href="https://www.curseforge.com/members/denisjaved/projects" target="_blank" rel="noopener">
+            <button class="menu">
+                CurseForge
+            </button>
+        </a>
+        <a class="menu-" href="https://modrinth.com/organization/story-anvil" target="_blank" rel="noopener">
+            <button class="menu">
+                Modrinth
+            </button>
+        </a>
+    </div>
+
+    <div id="downloadprompt"
+        style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgb(34, 34, 34); z-index: 999; padding: 50px; border-radius: 15px;">
+        Redirecting...
+    </div>
+
+    <div id="copyrightnoticeraw">
+        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
+        Minecraft is copyright Mojang Studios and is not affiliated with this site.
+    </div>
+
+    <script>
+        const url = new URL(document.location);
+
+        fetch("https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/links/" + url.searchParams.get("i"), {
+            method: "GET"
+        }).then((response) => {
+            response.text().then(
+                (data) => {
+                    document.getElementById("downloadprompt").innerHTML = `<a href="${data}">${data}</a>`
+                    setTimeout(() => { document.location = data }, 1500);
+                }
+            ).catch((reason) => {
+                alert("Failed to load linkdata. Check your internet connection!");
+                console.warn(reason);
+            })
+        }).catch((reason) => {
+            alert("Failed to load linkdata. Check your internet connection!");
+            console.warn(reason);
+        })
+    </script>
+</body>
+
+</html>
