@@ -144,3 +144,38 @@ code {
   color: var(--tcolor);
   font-weight: bold !important;
 }
+.badge {
+  border-radius: 2px;
+  padding: 3px;
+  background-color: var(--badge-bg);
+  color: var(--badge-fg);
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: fit-content;
+  height: 1.5rem;
+
+  --badge-bg: #3e3e3e;
+  --badge-fg: white;
+  --badge-icon: '';
+}
+.badge::before {
+  content: var(--badge-icon);
+  display: block;
+  height: 1rem;
+  max-width: 1rem;
+}
+.badge img {
+  max-height: 1.3rem;
+  object-fit: scale-down;
+  padding-right: 5px;
+}
+.b-nip img {
+  padding-right: 0px;
+}
+.tiny-md {
+  margin: 1px;
+}

@@ -49,6 +49,19 @@
             padding-bottom: 25vh;
             background-color: rgb(34, 34, 34);
             position: relative;
+            margin-bottom: 0px;
+        }
+        #subbanner {
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            text-align: center;
+            background-color: rgb(34, 34, 34);
+            margin-top: 0px;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
         html,
@@ -275,6 +288,23 @@
                 <img src="./assets/StoryAnvil.svg">
             </span>
         </div>
+        <div id="subbanner">
+            <a href="https://github.com/StoryAnvil">
+                <span class="badge b-nip tiny-md"><img alt="github" src="./assets/github-mark-white.svg"></span>
+            </a>
+            <a href="https://www.curseforge.com/members/denisjaved/projects">
+                <span class="badge b-nip tiny-md"><img alt="curseforge" src="https://static-beta.curseforge.com/images/favicon.ico"></span>
+            </a>
+            <a href="https://modrinth.com/organization/story-anvil">
+                <span class="badge b-nip tiny-md"><img alt="modrinth" src="https://modrinth.com/favicon.ico"></span>
+            </a>
+            <a href="https://www.planetminecraft.com/member/denisjava/">
+                <span class="badge b-nip tiny-md"><img alt="planetminecraft" src="https://planetminecraft.com/favicon.ico"></span>
+            </a>
+            <a href="mailto:denisJavaOffical+storyanvil@yandex.ru">
+                <span class="badge b-nip tiny-md">@email</span>
+            </a>
+        </div>
         <div>
             <h2>Projects</h2>
             <div>
@@ -421,6 +451,10 @@
             if (e.rawdata) { e.data = e.rawdata }
             if (e.data) { type = e.data.project_type }
             if (e.datapack == true) { type = "datapack" }
+            badgesString = `
+            ${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><span class="badge b-cf"><img src="https://static-beta.curseforge.com/images/favicon.ico"> CurseForge</span></a>` : ``}
+            ${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><span class="badge b-md"><img src="https://modrinth.com/favicon.ico"> Modrinth</span></a>` : ``}
+            ${e.platforms.pmc ? `<a href="${e.platforms.pmc}"<span class="badge b-pmc"><img src="https://www.planetminecraft.com/favicon.ico"> PlanetMC</span></a>` : ""}`;
             $html[(!e.archived ? typeToId[type] : "prlist_archived")] += `<div id="${"pr_" + e.id}" class="pr-card${url.searchParams.get('id') == e.id ? " pr-active" : ""}">
                             <div>
                                 <div style="position: relative;">
@@ -432,12 +466,10 @@
                                 </div>
                             </div>
 
-                            <div style="padding: 20px;">
-                                ${e.wiki ? `<a href="${e.wiki}"><img alt="Static Badge" src="https://img.shields.io/badge/-Wiki-gray?style=flat-square&logo=gitbook"></a>` : ""}
-                                ${e.data && e.archived ? `<img alt="${type}" src="https://img.shields.io/badge/-${type}-red?style=flat-square">` : ``}
-                                ${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}
-                                ${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}
-                                ${e.platforms.pmc ? `<a href="${e.platforms.pmc}"><img alt="Static Badge" src="https://img.shields.io/badge/-Planet%20MC-gray?style=flat-square"></a>` : ""}
+                            <div style="padding: 20px; display: flex; flex-direction: row; align-items: start; flex-wrap: wrap">
+                                ${e.data && e.archived ? `<span class="badge">${type}</span>` : ``}
+                                ${e.wiki ? `<a href="${e.wiki}"><span class="badge b-wiki"><img src="./assets/storyanvil-small.svg">Wiki</span></a>` : ""}
+                                ${badgesString}
                             </div>
                         </div>`;
             (!e.archived ? idToElement[typeToId[type]] : idToElement["prlist_archived"]).innerHTML = $html[(!e.archived ? typeToId[type] : "prlist_archived")];
@@ -447,7 +479,10 @@
                 document.getElementById("copyrightnoticeRaw").style.display = "none";
                 document.getElementById("copyrightnotice").style.display = "block";
                 document.getElementById("homepage").style.display = "none";
-                document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br>${e.platforms.curseforge ? `<a href="${e.platforms['curseforge']}"><img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/${e.platforms['curseforge-id']}?style=flat-square&logo=curseforge&label=Downloads"></a>` : ``}<br>${e.platforms.modrinth ? `<a href="${e.platforms['modrinth']}"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/${e.platforms['modrinth-id']}?style=flat-square&logo=modrinth&label=Downloads"></a>` : ``}`;
+                document.getElementById("dwnbody").innerHTML = `<p>Click on badge below.</p><br><div style="display: flex; flex-direction: column; flex-warp: nowrap;">
+                    ${e.wiki ? `<a href="${e.wiki}"><span class="badge b-wiki"><img src="./assets/storyanvil-small.svg">Visit ${e.name}'s wiki</span></a>` : ""}
+                    ${e.wiki ? `<a href="https://storyanvil.github.io/bugreporting?id=${e.id}"><span class="badge b-bug-report"><span style="padding-right: 5px;">⚠️</span>Report bug in ${e.name}</span></a>` : ""}
+                    ${badgesString}</div>`;
                 document.getElementById("dwntitle").innerHTML = "Download " + e.name;
                 document.getElementById("downloadprompt").style.display = "block";
                 document.getElementById("copyrightnotice").style.position = "fixed";
