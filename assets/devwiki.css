@@ -143,3 +143,45 @@ code.hljs {
 .hljs-deletion {
     font-family: "JetBrains Mono", monospace !important;
 }
+.info {
+    --color: white;
+    --tcolor: rgb(84, 226, 226);
+    --bg: rgba(51, 204, 204, 0.5);
+    --name: "Info: ";
+}
+.warn {
+    --color: white;
+    --tcolor: rgb(226, 160, 84);
+    --bg: rgba(216, 173, 54, 0.5);
+    --name: "Warning: ";
+}
+.caution {
+    --color: white;
+    --tcolor: rgb(226, 89, 84);
+    --bg: rgba(201, 50, 50, 0.5);
+    --name: "Caution: ";
+}
+.tip {
+    --color: white;
+    --tcolor: rgb(112, 226, 84);
+    --bg: rgba(41, 189, 66, 0.5);
+    --name: "Tip: ";
+}
+
+.alert {
+    padding: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    color: var(--color);
+    background-color: var(--bg);
+    box-sizing: border-box;
+    margin-inline: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--tcolor);
+}
+.alert p {
+    padding-left: 0.5rem !important;
+    padding: 0px;
+    margin: 0px;
+}
