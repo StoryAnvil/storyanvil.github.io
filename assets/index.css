@@ -52,9 +52,95 @@
     color: var(--brighter);
     text-align: center;
 }
+.banner-bg {
+    width: 100%;
+}
+.shorthand-download {
+    color: var(--link);
+}
+:root {
+    --devBG: #d1d1d1;
+    --devTint: #a1a1a1;
+    --devText: #000000;
+    --devAccent: #ff8522;
+}
+.devToDev {
+    background-color: var(--devBG);
+    padding: 15px;
+    color: var(--devText);
+    font-family: "Chakra Petch", sans-serif;
+}
+.devToDev hr {
+    border: 5px solid var(--devAccent);
+}
+.devToDevList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow: auto;
+}
+.devCard {
+    border: 1px solid var(--devTint);
+    padding: 15px;
+    font-family: "JetBrains Mono", monospace;
+    width: 500px;
+    min-width: 400px;
+    max-width: 500px;
+    margin: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dc {
+    border-left: none;
+}
+.devCardId {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.devCard h3 {
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: larger;
+}
+.devAccent {
+    color: var(--devAccent);
+    font-weight: bold;
+}
+.devBtn {
+    padding: 10px;
+    border: 1px solid var(--devTint);
+    border-radius: 0px;
+    outline: none;
+    font-family: "Chakra Petch", sans-serif;
+    background-color: var(--devBG);
+    font-size: large;
+    transition: all 0.08s linear;
+}
+.devBtn:hover {
+    color: var(--devAccent);
+    font-weight: bold;
+}
 @media (width <= 1100px) {
+    .devToDevList {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .devCard {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
     .card {
         width: 100%;
+        min-width: 100%;
+        max-width: 100%;
         margin: 0px;
         box-sizing: border-box;
     }
@@ -67,10 +153,8 @@
         flex-direction: column;
         align-items: center;
     }
-}
-.banner-bg {
-    width: 100%;
-}
-.shorthand-download {
-    color: var(--link);
+    .dc {
+        border-left: 1px solid var(--devTint);
+        border-top: none;
+    }
 }

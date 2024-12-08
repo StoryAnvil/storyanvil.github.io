@@ -10,8 +10,7 @@
     <link rel="icon" href="./favicon.ico">
 
     <script src="./lib/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.12"></script>
+    <script src="./lib/storylib.js"></script>
 
     <meta name="google-site-verification" content="O31NJDv3bMJOwDuqZVrZd3P7e9gLwL_RcgFv9P4jPV0" />
     <meta name="yandex-verification" content="f3cd06ace0e73f71" />
@@ -32,10 +31,10 @@
 
 <body style="position: relative;">
     <header>
-        <div>
-            <a href="https://storyanvil.github.io?section=home">
+        <div style="font-family: 'JetBrains Mono', monospace;">
+            <button class="inv-btn" onclick="$story.to('?section=home');">
                 STORY<b class="bright">ANVIL</b>
-            </a>
+            </button>
         </div>
         <div class="flex-center-even">
         </div>
@@ -84,8 +83,46 @@
         </div>
     </div>
 
-    <script src="./lib/storylib.js"></script>
-    <script src="./lib/jquery-3.7.1.min.js"></script>
+    <div class="thing"></div>
+    <div class="thing"></div>
+    <div class="thing"></div>
+
+    <div class="devToDev">
+        <h2 style="font-size: 5rem; margin: 0px; padding: 0px;">
+            FROM DEVS <span style="font-family: 'JetBrains Mono', monospace; color: var(--devAccent);">FOR DEVS</span>
+        </h2>
+        <hr>
+        <div class="devToDevList">
+            <div class="devCard">
+                <div class="devCardId">01</div>
+                <div>
+                    <h3>CONTACT US</h3>
+                    Want develop project with us? <br>
+                    Want to share your project with us? <br>
+                    Or have trouble using our
+                    <span class="devAccent">from dev to dev</span> project?
+                </div>
+                <div class="thing"></div>
+                <div class="cardend">
+                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=contact');">CONTACT US</button>
+                </div>
+            </div>
+            <div class="devCard dc">
+                <div class="devCardId">02</div>
+                <div>
+                    <h3>COGWHEEL ENGINE</h3>
+                    Are you developing story-based project?<br>
+                    If so, StoryAnvil COGWHEEL might be helpful
+                </div>
+                <div class="thing"></div>
+                <div class="cardend">
+                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=cogwheel/home');">VISIT
+                        DEV WIKI</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $story.sections.start = () => {
             $story.scrollTo($("body")[0]);

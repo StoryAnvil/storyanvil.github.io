@@ -1,0 +1,41 @@
+#content {
+    position: relative;
+    flex-grow: 1;
+    overflow: auto;
+    padding-inline: 15px;
+}
+.loading-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+/** WIKI STYLE **/
+hr {
+    height: 1px;
+    border: 1px solid var(--light-mid);
+    width: 98%;
+    text-align: center;
+}
+pre {
+    font-family: "JetBrains Mono", monospace;
+    background-color: #22272e;
+    color: #adbac7;
+    border-radius: 15px;
+    padding: 15px;
+}
+button {
+    background-color: #22272e;
+    color: white;
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 5px;
+    padding: 10px;
+}
