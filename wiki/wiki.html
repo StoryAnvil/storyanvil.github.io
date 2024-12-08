@@ -69,6 +69,9 @@
                 <button onclick="window.location = link;">
                     Open on github
                 </button>
+                <button onclick="$story.to('/bugreporting.html?id=wiki')">
+                    Report problem
+                </button>
             </div>
         </div>
     </div>
@@ -81,10 +84,10 @@
 
         let repo = $story.get("repo", "BlogAndWiki");
         let branch = $story.get("v", "master");
-        let file = $story.get("p", "home.md");
+        let file = $story.get("p", "home") + ".md";
         let offline = $story.get("debug", "false");
 
-        let link = `https://github.com/StoryAnvil/${repo}/${branch}/${file}`;
+        let link = `https://github.com/StoryAnvil/${repo}/blob/${branch}/${file}`;
 
         $story.network.text(window.location.href.indexOf("localhost") == -1 ? `https://raw.githubusercontent.com/StoryAnvil/${repo}/${branch}/${file}` : `https://raw.githubusercontent.com/${file}`, offline == "true",
             (md_) => {
