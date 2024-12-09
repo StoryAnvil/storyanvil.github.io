@@ -66,7 +66,7 @@
                         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
             </p>
             <div style="display: flex; padding: 5px;">
-                <button onclick="window.location = link;">
+                <button onclick="$story.wiki.openGitHub()">
                     Open on github
                 </button>
                 <button onclick="$story.to('/bugreporting.html?id=wiki')">
@@ -79,28 +79,8 @@
 
     <script>
         $story.init();
-        let md = new window.Remarkable("full", $story.md(hljs));
-        console.log(md);
-
-        let repo = $story.get("repo", "BlogAndWiki");
-        let branch = $story.get("v", "master");
-        let file = $story.get("p", "home") + ".md";
-        let offline = window.location.href.indexOf("localhost") == -1;
-
-        let link = `https://github.com/StoryAnvil/${repo}/blob/${branch}/${file}`;
-
-        $story.network.text(offline ? `https://raw.githubusercontent.com/StoryAnvil/${repo}/${branch}/${file}` : `https://raw.githubusercontent.com/${file}`, !offline,
-            (md_) => {
-                $("#content")[0].innerHTML = md.render(md_);
-
-                setTimeout(() => {
-                    if ($("fromDevsToDevs").length > 0) {
-                        $story.to(`/wiki/dev.html?repo=${repo}&v=${branch}&p=${file}`);
-                    }
-                }, 500);
-            }, (err) => {
-                $(".loading-screen")[0].innerHTML = `Failed to load. [${err}]`
-            }, 5501);
+        $story.wiki.init();
+        $story.wiki.fetchAndRender($(".loading-screen")[0], $("#content")[0]);
     </script>
 </body>
 

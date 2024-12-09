@@ -89,31 +89,8 @@
 
     <script>
         $story.init();
-        let md = new window.Remarkable("full", $story.md(hljs));
-        console.log(md);
-
-        let repo = $story.get("repo", "BlogAndWiki");
-        let branch = $story.get("v", "master");
-        let file = $story.get("p", "home.md");
-        let offline = window.location.href.indexOf("localhost") == -1;
-
-        let link = `https://github.com/StoryAnvil/${repo}/blob/${branch}/${file}`;
-
-        $story.network.text(offline ? `https://raw.githubusercontent.com/StoryAnvil/${repo}/${branch}/${file}` : `https://raw.githubusercontent.com/${file}`, !offline,
-            (md_) => {
-                $("#content")[0].innerHTML = md.render(md_);
-                setTimeout(() => {
-                    const aside = $("aside");
-                    console.log(aside);
-                    if (aside.length > 0) {
-                        for (let i = 0; i < aside.length; i++) {
-                            $("#mdsidebarReserved")[0].appendChild(aside[0]);
-                        }
-                    }
-                }, 500);
-            }, (err) => {
-                $(".loading-screen")[0].innerHTML = `Failed to load. [${err}]`
-            }, 5501);
+        $story.wiki.init();
+        $story.wiki.fetchAndRender($(".loading-screen")[0], $("#content")[0]);
     </script>
 </body>
 
