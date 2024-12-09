@@ -1,181 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-
+/*==============================================
+                   FONTS
+==============================================*/
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap");
 * {
-  font-family: "JetBrains Mono", monospace;
+    box-sizing: border-box;
 }
 
-/* width */
+/*==============================================
+                   SCROLLBAR
+==============================================*/
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #373b3e;
+    background: #373b3e;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #0c0d0e;
+    background: #0c0d0e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0c0d0e;
+}
+::selection {
+    background-color: var(--link);
+    color: var(--brighter);
+}
+/*==============================================
+                  ELEMENTS
+==============================================*/
+:root {
+    --darkest: #000000;
+    --darker: #202020;
+    --dark: #252525;
+    --mid: #313131;
+    --light-mid: #515151;
+    --bright: #cccccc;
+    --brighter: #ffffff;
+
+    --link: #7287fa;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #0c0d0e;
+html {
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    color: var(--bright);
+}
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--darker);
+    scroll-behavior: smooth;
+    font-family: "Rubik", sans-serif;
+}
+header {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: var(--dark);
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+    z-index: 5000;
+}
+header div a {
+    text-decoration: none;
+    color: var(--bright);
+    font-size: larger;
+    padding-inline: 15px;
 }
 hr {
-  border: 1px solid rgb(88, 88, 88);
-  height: 0px;
+    height: 1px;
+    border: 1px solid var(--darker);
+}
+.thing {
+    height: 1px;
+    margin-top: 14px;
+}
+.inv-btn {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    font: inherit;
 }
 a {
-  text-decoration: none;
-  color: rgb(74, 123, 228);
+    color: var(--link);
+    text-decoration: none;
 }
-table {
-  border: 1px solid rgb(88, 88, 88);
-  border-collapse: collapse;
+/*==============================================
+                    UTILS
+==============================================*/
+.bright {
+    color: var(--brighter);
 }
-td, th {
-  border: 1px solid rgb(88, 88, 88);
-  padding: 10px;
-  font-weight: normal;
+.art {
+    margin-inline: 40px;
 }
-table thead tr th {
-  font-weight: bolder;
+@media (width <= 1100px) {
+    .art {
+        margin-inline: 0px;
+    }
 }
-#copyrightnotice {
-  font-size: small; 
-  margin-top: 50px; 
-  color: white; 
-  background:rgb(80, 80, 80); 
-  padding: 5px; 
-  width: 100%; 
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-#copyrightnoticeRaw {
-  font-size: small; 
-  margin-top: 50px; 
-  color: white; 
-  background:rgb(80, 80, 80); 
-  padding: 5px; 
-  width: 100%; 
-  box-sizing: border-box;
-}
-button {
-  background: #0c0d0e;
-  color: white;
-  border: 1px solid #404244;
-  padding: 5px;
-  border-radius: 5px;
-  transition: background 0.05s linear;
-  vertical-align: middle;
-  box-sizing: border-box;
-}
-button:hover {
-  background: #202224;
-}/*
-code {
-  background-color: #171818;
-  width: 100%;
-}
-.language-js {
-  display: block;
-  padding: 5px;
-  max-width: 100%;
-  box-sizing: border-box;
-}*/
-
-::selection {
-  background-color: #838383;
-  color: black;
-}
-
-
-/**          ALERTS           **/
-
-.info {
-  --color: white;
-  --tcolor:rgb(84, 226, 226);
-  --bg: rgba(33, 150, 150, 0.5);
-  --name: "Info: ";
-}
-.warn {
-  --color: white;
-  --tcolor:rgb(226, 160, 84);
-  --bg: rgba(150, 119, 33, 0.5);
-  --name: "Warning: ";
-}
-.caution {
-  --color: white;
-  --tcolor:rgb(226, 89, 84);
-  --bg: rgba(150, 33, 33, 0.5);
-  --name: "Caution: ";
-}
-.tip {
-  --color: white;
-  --tcolor:rgb(112, 226, 84);
-  --bg: rgba(33, 150, 52, 0.5);
-  --name: "Tip: ";
-}
-
-.alert {
-  padding: 15px;
-  margin: 5px;
-  border-radius: 15px;
-  color: var(--color);
-  background-color: var(--bg);
-  box-sizing: border-box;
-  margin-inline: 15px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--tcolor);
-}
-.alert p {
-  padding-left: 0.5rem !important;
-  padding: 0px;
-  margin: 0px;
-}
-.alert::before {
-  content: var(--name);
-  color: var(--tcolor);
-  font-weight: bold !important;
+.rel {
+    position: relative;
 }
 .badge {
-  border-radius: 2px;
-  padding: 3px;
-  background-color: var(--badge-bg);
-  color: var(--badge-fg);
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  width: fit-content;
-  height: 1.5rem;
+    border-radius: 2px;
+    padding: 3px;
+    background-color: var(--badge-bg);
+    color: var(--badge-fg);
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: fit-content;
+    height: 1.5rem;
 
-  --badge-bg: #3e3e3e;
-  --badge-fg: white;
-  --badge-icon: '';
+    --badge-bg: #3e3e3e;
+    --badge-fg: white;
+    --badge-icon: "";
 }
 .badge::before {
-  content: var(--badge-icon);
-  display: block;
-  height: 1rem;
-  max-width: 1rem;
+    content: var(--badge-icon);
+    display: block;
+    height: 1rem;
+    max-width: 1rem;
 }
 .badge img {
-  max-height: 1.3rem;
-  object-fit: scale-down;
-  padding-right: 5px;
+    max-height: 1.3rem;
+    object-fit: scale-down;
+    padding-right: 5px;
 }
 .b-nip img {
-  padding-right: 0px;
-}
-.tiny-md {
-  margin: 1px;
+    padding-right: 0px;
 }

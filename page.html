@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoryAnvil</title>
-    <meta name="keywords" content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks" />
+    <meta name="keywords"
+        content="minecraft,storyanvil,mc,minecraft mods,minecraft datapacks,minecraft resourcepacks,minecraft modpacks" />
     <link rel="stylesheet" href="./assets/css.css">
+    <meta name="robots" content="noindex" />
+    <script src="./lib/storylib.js"></script>
     <style>
         html,
         body {
@@ -124,26 +127,15 @@
 </head>
 
 <body style="position: relative;">
-    <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
- 
-    ym(99151861, "init", {
-         clickmap:true,
-         trackLinks:true,
-         accurateTrackBounce:true
-    });
- </script>
- <noscript><div><img src="https://mc.yandex.ru/watch/99151861" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
- <!-- /Yandex.Metrika counter -->
     <div id="header">
         <a class="menu-" href="https://storyanvil.github.io">
             <button class="menu">
                 STORY<b>ANVIL</b>
+            </button>
+        </a>
+        <a class="menu-" href="https://storyanvil.github.io/page?wiki=home">
+            <button class="menu">
+                Wiki
             </button>
         </a>
         <a class="menu-" href="https://github.com/StoryAnvil" target="_blank" rel="noopener">
@@ -194,14 +186,16 @@
             <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
                     rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki
                     content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName"
-                    href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> and 
-                    <a href="https://github.com/StoryAnvil/BlogAndWiki/graphs/contributors">StoryAnvil wiki contributors</a> is licensed under 
-                    <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+                    href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> and
+                <a href="https://github.com/StoryAnvil/BlogAndWiki/graphs/contributors">StoryAnvil wiki contributors</a>
+                is licensed under
+                <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
                     rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
                         style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
                         src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
                         style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
+            </p>
             <hr>
         </div>
 
@@ -213,137 +207,21 @@
             StoryAnvil website license
         </a>
     </div>
-
-    <script type="text/javascript" src="./lib/purify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
     <script src="./lib/jquery-3.7.1.min.js"></script>
     <script>
-        marked.use(markedFootnote());
         const url = new URL(document.location);
-        let content = {
-            debug: false,
-            datasource: "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master"
-        };
-        console.log(content);
-        if (url.searchParams.get('debug') == "1") {
-            content.debug = true;
-            if (url.searchParams.get('source') != null) {
-                content.datasource = "http://" + url.searchParams.get('source');
-            }
-
-            if (url.searchParams.get('dbgw') != null) {
-                content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
-                content.type = "wiki";
-            }
-            if (url.searchParams.get('dbgb') != null) {
-                content.source = "http://localhost:5500/" + url.searchParams.get('dbgw');
-                content.type = "blog";
-            }
-        }
         if (url.searchParams.get('wiki') != null) {
-            content.source = content.datasource + "/wiki/" + url.searchParams.get('wiki');
-            content.type = "wiki";
+            $story.to("/wiki/wiki.html?p=wiki/" + url.searchParams.get('wiki'));
         }
         if (url.searchParams.get('blog') != null) {
-            content.source = content.datasource + "/blog/" + url.searchParams.get('blog');
-            content.type = "blog";
+            $story.to("/wiki/wiki.html?p=blog/" + url.searchParams.get('blog'));
         }
         if (url.searchParams.get('full') != null) {
-            content.source = "https://raw.githubusercontent.com/StoryAnvil/BlogAndWiki/master/" + url.searchParams.get('full');
-            content.type = "blog";
+            $story.to("/wiki/wiki.html?p=" + url.searchParams.get('full'));
         }
         if (url.searchParams.get('fullrepo') != null) {
-            content.source = "https://raw.githubusercontent.com/StoryAnvil/" + url.searchParams.get('fullrepo');
-            content.type = "blog";
-        }
-
-        if (content.source == undefined) {
-            $("#invalidlinkmsg")[0].innerHTML = `
-                Request link is invalid
-                <br>
-                <pre>ERRCODE:CLF3.0</pre>
-                `;
-            $("#invalidlink")[0].style.display = "block";
-        }
-
-        if (content.type != "wiki") {
-            $("#wikisidebar")[0].style.display = "none";
-        }
-
-        fetch(content.source + ".md", {
-            method: "GET"
-        }).then((response) => {
-            response.text().then((_content) => {
-                content.raw = _content;
-                post();
-            }).catch((reason) => {
-                console.error(reason);
-                alert("Failed to load content, response preparse went wrong [" + reason + "]! ERRCODE:CLF1");
-            })
-        }).catch((reason) => {
-            console.error(reason);
-            alert("Failed to load content [" + reason + "]! ERRCODE:CLF2");
-        })
-
-        function post() {
-            if (content.raw == "404: Not Found") {
-                $("#invalidlinkmsg").innerHTML = `
-                    Request resource got deleted.
-                    <br>
-                    <pre>ERRCODE:CLF3.1</pre>
-                    `;
-                $("#invalidlink").style.display = "block";
-            }
-            content.parsed = marked.parse(content.raw);
-            if (!content.debug) delete content.raw;
-
-            $("#parsedpage").html(content.parsed + `
-                <div id="wikicopyrightnotice">
-                    <hr>
-                                <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
-                    rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki
-                    content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName"
-                    href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> and 
-                    <a href="https://github.com/StoryAnvil/BlogAndWiki/graphs/contributors">StoryAnvil wiki contributors</a> is licensed under 
-                    <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
-                    rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
-                        style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
-                        style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
-                    <div style="margin-top:15px;">
-                        <a href="https://storyanvil.github.io/page?blog=StoryAnvilContact">
-                            <button>
-                                Contact StoryAnvil
-                            </button>
-                        </a>
-                        <a href="./page.html?full=CONTRIBUTING">
-                            <button>
-                                Contribute
-                            </button>
-                        </a>
-                        <a href="https://storyanvil.github.io/bugreporting.html?id=wiki">
-                            <button>
-                                Report problem
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            `);
-
-            const aside = $("aside");
-            console.log(aside);
-            if (aside.length > 0) {
-                for (let i = 0; i < aside.length; i++) {
-                    $("#mdsidebarReserved")[0].appendChild(aside[0]);
-                }
-            }
-
-            if (window.screen.width <= 700) {
-                console.log("On mobile!");
-                window.scrollTo(0, $("#header")[0].scrollHeight)
-            }
+            p = url.searchParams.get('fullrepo').split("/");
+            $story.to("/wiki/wiki.html?repo=" + p[0] + "&v=" + p[1] + "&p=" + url.searchParams.get('fullrepo').substring(p[0].length + p[1].length + 2));
         }
     </script>
 </body>

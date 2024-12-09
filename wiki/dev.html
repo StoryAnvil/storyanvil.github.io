@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryAnvil Wiki</title>
+    <link rel="stylesheet" href="../assets/css.css">
+    <link rel="stylesheet" href="../assets/devwiki.css">
+    <link rel="icon" href="../favicon.ico">
+
+    <script src="../lib/jquery-3.7.1.min.js"></script>
+    <script src="../lib/remarkable.min.js"></script>
+    <script src="../lib/highlight.min.js"></script>
+    <link rel="stylesheet" href="../lib/highlight.light.min.css">
+    <script src="../lib/storylib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gradle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/markdown.min.js"></script>
+
+    <meta name='description' content='StoryAnvil wiki.'>
+    <meta name='author' content='StoryAnvil, StoryAnvil contributors (denisJavaOffical+storyanvil@yandex.ru)'>
+    <meta property="og:title" content="StoryAnvil" />
+    <meta property="twitter:title" content="StoryAnvil" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:description" content="StoryAnvil wiki. Click on link to get more info!" />
+</head>
+
+<body style="position: relative;">
+    <div class="page">
+        <header>
+            <div style="font-family: 'JetBrains Mono', monospace;">
+                <button class="inv-btn" onclick="$story.to('?section=home');">
+                    STORY<b>ANVIL</b>
+                </button>
+                <button class="inv-btn" onclick="$story.to('?section=dev');"
+                    style="background-color: #ffffff; padding: 5px; border-radius: 5px;">
+                    FROM DEVS <span style="font-family: 'JetBrains Mono', monospace; color: var(--devAccent);">FOR
+                        DEVS</span>
+                </button>
+            </div>
+            <div class="flex-center-even">
+            </div>
+            <div>
+            </div>
+        </header>
+        <div id="contentwrap">
+            <div id="content">
+                <div class="loading-screen">
+                    Loading wiki...
+                </div>
+            </div>
+            <div id="mdsidebarReserved">
+                <hr class="aside">
+            </div>
+        </div>
+        <div style="padding-inline: 15px;">
+            <hr>
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                    rel="cc:attributionURL" href="https://github.com/StoryAnvil/BlogAndWiki/tree/master">StoryAnvil wiki
+                    content</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName"
+                    href="https://github.com/orgs/StoryAnvil/teams/wiki">StoryAnvil wiki team</a> and
+                <a href="https://github.com/StoryAnvil/BlogAndWiki/graphs/contributors">StoryAnvil wiki contributors</a>
+                is licensed under
+                <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
+                        style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                        style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
+            </p>
+            <div style="display: flex; padding: 5px;">
+                <button onclick="window.location = link;">
+                    Open on github
+                </button>
+                <button onclick="$story.to('/bugreporting.html?id=wiki')">
+                    Report problem
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $story.init();
+        $story.wiki.init();
+        $story.wiki.fetchAndRender($(".loading-screen")[0], $("#content")[0]);
+    </script>
+</body>
+
+</html>

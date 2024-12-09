@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryAnvil</title>
+    <link rel="stylesheet" href="./assets/css.css">
+    <link rel="stylesheet" href="./assets/index.css">
+    <link rel="icon" href="./favicon.ico">
+
+    <script src="./lib/jquery-3.7.1.min.js"></script>
+    <script src="./lib/storylib.js"></script>
+    <script src="./lib/projects.js"></script>
+
+    <meta name="google-site-verification" content="O31NJDv3bMJOwDuqZVrZd3P7e9gLwL_RcgFv9P4jPV0" />
+    <meta name="yandex-verification" content="f3cd06ace0e73f71" />
+    <meta name="robots" content="noindex" />
+    <meta name='description'
+        content='StoryAnvil. We make minecraft mods, datapacks, resourcepacks and bunch of other stuff. Come and see what we done!'>
+    <meta name='author' content='StoryAnvil, StoryAnvil contributors (denisJavaOffical+storyanvil@yandex.ru)'>
+    <meta property="og:title" content="StoryAnvil" />
+    <meta property="og:url" content="https://storyanvil.github.io" />
+    <meta property="og:image"
+        content="https://cdn.modrinth.com/data/NWVKDeh6/images/8d9059ecbfe921c332c6cb44dcf037307596d43c.png" />
+    <meta property="twitter:title" content="StoryAnvil" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:description"
+        content="StoryAnvil. We make minecraft mods, datapacks, resourcepacks and bunch of other stuff. Come and see what we done!" />
+    <meta property="twitter:image"
+        content="https://cdn.modrinth.com/data/NWVKDeh6/images/8d9059ecbfe921c332c6cb44dcf037307596d43c.png" />
+</head>
+
+<body style="position: relative;">
+    <header>
+        <div style="font-family: 'JetBrains Mono', monospace;">
+            <button class="inv-btn" onclick="$story.to('?section=home');">
+                STORY<b class="bright">ANVIL</b>
+            </button>
+        </div>
+        <div class="flex-center-even">
+        </div>
+        <div>
+        </div>
+    </header>
+    <h2 id="title"></h2>
+    <div class="thing"></div>
+    <div id="contents" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+    </div>
+    <script>
+        $story.init();
+        let id = $story.get("id", null);
+        if (id == null || !$projects.hasOwnProperty(id)) {
+            alert("Invalid id.")
+        } else {
+            const v = (_id) => {
+                return $projects[id].hasOwnProperty(_id)
+            }
+            let e = $projects[id];
+            $("#contents")[0].innerHTML = `
+                ${v('cf') ? `<a href="${e.cf}"><span class="badge b-cf"><img src="https://static-beta.curseforge.com/images/favicon.ico"> CurseForge</span></a>` : ``}
+                ${v('md') ? `<a href="${e.md}"><span class="badge b-cf"><img src="https://modrinth.com/favicon.ico"> Modrinth</span></a>` : ``}
+                ${v('pmc') ? `<a href="${e.pmc}"><span class="badge b-cf"><img src="https://www.planetminecraft.com/favicon.ico"> PlanetMC</span></a>` : ``}
+            `;
+        }
+    </script>
+</body>
+
+</html>
