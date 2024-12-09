@@ -32,7 +32,7 @@
 <body style="position: relative;">
     <header>
         <div style="font-family: 'JetBrains Mono', monospace;">
-            <button class="inv-btn" onclick="$story.fto('?section=home');">
+            <button class="inv-btn" onclick="$story.to('?section=home');">
                 STORY<b class="bright">ANVIL</b>
             </button>
         </div>
@@ -47,12 +47,14 @@
     </div>
     <div class="thing"></div>
     <div class="art" id="projects">
-        <div class="tab">
-            PROJECTS
+        <div style="display: flex;">
+            <div class="tab">
+                PROJECTS
+            </div>
         </div>
         <div class="tab-contents">
-            <div class="tab-row">
-                <div class="card">
+            <div class="tab-row" id="container">
+                <div class="card shuffleMe">
                     <div class="rel">
                         <img class="card-banner"
                             src="https://media.forgecdn.net/attachments/1012/271/2024-11-11_19.png">
@@ -68,16 +70,72 @@
                     <span class="shorthand">Modded</span> •
                     <a href="./download.html?id=orehighlighter">
                         <span class="shorthand-download">Download</span>
+                    </a> •
+                    <a href="./wiki/wiki.html?p=wiki/projects/orehighlighter">
+                        <span class="shorthand-download">Wiki</span>
                     </a>
                 </div>
-                <div class="card">
-                    sus
+                <div class="card shuffleMe">
+                    <div class="rel">
+                        <img class="card-banner"
+                            src="https://media.forgecdn.net/attachments/1020/346/7ffdf3a98aecf2589a0c8c193d7b901720eb5c81.png">
+                        <img class="card-icon"
+                            src="https://media.forgecdn.net/avatars/thumbnails/1125/37/256/256/638682248498745158.png">
+                    </div>
+                    <div class="card-title">
+                        Create styled tools
+                    </div>
+                    Tools from create mod materials (this is just rename resourcepack check this wiki)
+                    <div class="thing"></div>
+                    <span class="shorthand">Resource Pack</span> •
+                    <span class="shorthand">Modded</span> •
+                    <a href="./download.html?id=create_tools">
+                        <span class="shorthand-download">Download</span>
+                    </a> •
+                    <a href="./wiki/wiki.html?p=wiki/projects/create_tools">
+                        <span class="shorthand-download">Wiki</span>
+                    </a>
                 </div>
-                <div class="card">
-                    sus
+                <div class="card shuffleMe">
+                    <div class="rel">
+                        <img class="card-banner" src="https://storyanvil.github.io/assets/blank.png">
+                        <img class="card-icon" src="https://storyanvil.github.io/assets/subnormal.png">
+                    </div>
+                    <div class="card-title">
+                        Subnormal
+                    </div>
+                    Bedrock jail map with ability to reset levels without reinstalling map
+                    <div class="thing"></div>
+                    <span class="shorthand">World</span> •
+                    <span class="shorthand">Puzzle</span> •
+                    <span class="shorthand">No mods</span> •
+                    <a href="./download.html?id=subnormal">
+                        <span class="shorthand-download">Download</span>
+                    </a> •
+                    <a href="./wiki/wiki.html?p=wiki/projects/subnormal">
+                        <span class="shorthand-download">Wiki</span>
+                    </a>
                 </div>
-                <div class="card">
-                    sus
+                <div class="card shuffleMe">
+                    <div class="rel">
+                        <img class="card-banner"
+                            src="https://cdn.modrinth.com/data/zGOnpakx/images/c1c507ca8fa1a1a4ae2385aa5c688a72c7d7d584.png">
+                        <img class="card-icon"
+                            src="https://cdn.modrinth.com/data/zGOnpakx/c245dc5a436330001fc3e8cf47939ad06df502ed_96.webp">
+                    </div>
+                    <div class="card-title">
+                        CreepME
+                    </div>
+                    Spawns creeper every 5 seconds!
+                    <div class="thing"></div>
+                    <span class="shorthand">Datapack</span> •
+                    <span class="shorthand" style="color: #e73e3e;;">Hardcore</span> •
+                    <a href="./download.html?id=creepme">
+                        <span class="shorthand-download">Download</span>
+                    </a> •
+                    <a href="./wiki/wiki.html?p=wiki/projects/creepme">
+                        <span class="shorthand-download">Wiki</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -104,7 +162,7 @@
                 </div>
                 <div class="thing"></div>
                 <div class="cardend">
-                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=contact');">CONTACT US</button>
+                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=wiki/devcontact');">CONTACT US</button>
                 </div>
             </div>
             <div class="devCard dc">
@@ -116,7 +174,7 @@
                 </div>
                 <div class="thing"></div>
                 <div class="cardend">
-                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=cogwheel/home');">VISIT
+                    <button class="devBtn" onclick="$story.to('/wiki/dev.html?p=wiki/projects/cogwheel/home');">VISIT
                         DEV WIKI</button>
                 </div>
             </div>
@@ -131,6 +189,33 @@
             $story.scrollTo($("#projects")[0]);
         };
         $story.init();
+        if ($story.get("downloadid", null) != null) {
+            $story.to("/download.html?id=" + $story.get("downloadid", null))
+        }
+
+        function shuffle() {
+            var container = document.getElementById("container");
+            var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('shuffleMe'));
+            elementsArray.forEach(function (element) {
+                container.removeChild(element);
+            })
+            shuffleArray(elementsArray);
+            elementsArray.forEach(function (element) {
+                container.appendChild(element);
+            })
+        }
+
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+
+        shuffle()
     </script>
 </body>
 
