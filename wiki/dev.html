@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css.css">
     <link rel="stylesheet" href="../assets/devwiki.css">
     <link rel="icon" href="../favicon.ico">
-
+    <meta name="fediverse:creator" content="@storyanvil@mastodon.social">
     <script src="../lib/jquery-3.7.1.min.js"></script>
     <script src="../lib/remarkable.min.js"></script>
     <script src="../lib/highlight.min.js"></script>
@@ -48,6 +48,11 @@
             <div class="flex-center-even">
             </div>
             <div>
+                <a rel="me" href="https://mastodon.social/@storyanvil">
+                    <button class="inv-btn">
+                        Mastodon
+                    </button>
+                </a>
             </div>
         </header>
         <div id="contentwrap">
@@ -75,8 +80,9 @@
                         style="height:1rem!important;margin-left:3px;vertical-align:text-bottom;"
                         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
             </p>
+            <div>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG. Minecraft is copyright Mojang Studios and is not affiliated with this site.</div>
             <div style="display: flex; padding: 5px;">
-                <button onclick="window.location = link;">
+                <button onclick="$story.wiki.openGitHub()">
                     Open on github
                 </button>
                 <button onclick="$story.to('/bugreporting.html?id=wiki')">
