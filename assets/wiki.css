@@ -82,3 +82,83 @@ button {
     padding: 0px;
     margin: 0px;
 }
+
+#alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #111213;
+    border-radius: 15px;
+    padding: 15px;
+    width: 50vw;
+    height: 80vh;
+    z-index: 99999999;
+}
+.alert-wrapper {
+    position: relative;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+.alert-close {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+/*///////////////////////////
+      COGWHEEL SPECS
+///////////////////////////*/
+.cw-title {
+    font-size: 3rem;
+    padding: 0px;
+    margin: 0px;
+    justify-self: center;
+}
+.cw-summary {
+    margin-left: 15px;
+}
+.cw-top {
+    display: flex;
+    flex-direction: row;
+}
+.cw-table {
+    width: 100%;
+    background-color: #232830;
+}
+.cw-table thead {
+    text-align: left;
+}
+.cw-table th {
+    background-color: #2a2d33;
+    padding: 5px;
+    font-weight: normal;
+    text-align: left;
+    position: relative;
+}
+.cw-badge {
+    display: inline-flex !important;
+    margin: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.cw-return {
+    color: rgb(156, 156, 156);
+}
+.cw-return a {
+    color: rgb(112, 110, 231);
+}
+.cw-chain-block {
+    background-color: #582828;
+    color: #ff4646;
+}
+.cw-corner {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.cw-table p {
+    padding: 0px;
+    margin: 0px;
+}
