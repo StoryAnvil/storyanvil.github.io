@@ -130,7 +130,7 @@ button {
 .cw-table thead {
     text-align: left;
 }
-.cw-table th {
+.cw-table th, .cw-th {
     background-color: #2a2d33;
     padding: 5px;
     font-weight: normal;
@@ -152,6 +152,10 @@ button {
 .cw-chain-block {
     background-color: #582828;
     color: #ff4646;
+}
+.cw-version-block {
+    background-color: #325828;
+    color: #81ff46;
 }
 .cw-corner {
     position: absolute;
