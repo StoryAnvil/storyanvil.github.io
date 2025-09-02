@@ -110,6 +110,10 @@ button {
 /*///////////////////////////
       COGWHEEL SPECS
 ///////////////////////////*/
+.cw-global {
+    min-width: 1100px;
+    overflow-x: auto;
+}
 .cw-title {
     font-size: 3rem;
     padding: 0px;
@@ -152,6 +156,12 @@ button {
 .cw-chain-block {
     background-color: #582828;
     color: #ff4646;
+    opacity: 0.7;
+    transition: opacity linear 500ms;
+}
+.cw-chain-block:hover {
+    opacity: 0.05;
+    cursor: not-allowed;
 }
 .cw-version-block {
     background-color: #325828;
